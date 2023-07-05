@@ -39,9 +39,8 @@ def createDB(videoUrls, chunkSize=chunkSize, chunkOverlap=chunkOverlap):
         loader = YoutubeLoader.from_youtube_url(url)
         transcript = loader.load()
         textSplitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        docsContainer.append(textSplitter.split_documents(transcript))
+        docs = (textSplitter.split_documents(transcript))
         
-    print(type(docsContainer[0]))
         
     # for docs in docsContainer:
     #     print(docs)
